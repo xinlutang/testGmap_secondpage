@@ -1,0 +1,103 @@
+<div data-role="tabs" id="tabs">
+	<div id="one" class="ui-body-d ui-content"></div>
+	<div id="two" class="ui-body-d ui-content"></div>
+
+	<div data-role="navbar" >
+		<ul>
+			<li>
+				<a id="mylocation" href="#one" data-ajax="false">My location</a>
+			</li>
+			<li>
+				<a id="jobsite" href="#two" data-ajax="false">Job site</a>
+			</li>
+
+		</ul>
+	</div>
+
+</div>
+
+<div id="map_canvas"></div>
+
+<div class="singlerow">
+
+	<div class="rowright">
+		<input id="query" style="width: 100%" placeholder="i.e. San Francisco"/>
+	</div>
+	<button id="searchBtn">
+		Search
+	</button>
+</div>
+
+<script type="text/javascript">
+	$(document).one("pageLoad", function(event, map) {
+
+		$("#mylocation").click(function() {
+			showMyLocation(map);
+			const LatLng = new plugin.google.maps.LatLng(37.421656, -122.085618);
+			addIconMarker(map, LatLng)
+		});
+		$("#mylocation").click();
+
+		$("#jobsite").click(function() {
+			init(map, addIconMarker, 37.421656, -122.085618);
+			addMarker(map, location.latLng);
+		});
+	});
+
+	function init(map, next, lat, alt) {
+		const LatLng = new plugin.google.maps.LatLng(lat, alt);
+
+		map.clear();
+		map.moveCamera({
+			'target' : LatLng,
+			'tilt' : 90,
+			'zoom' : 15,
+			'bearing' : 0
+		});
+		next(map, LatLng);
+	}
+
+	function addMarker(map, latLng) {
+		map.addMarker({
+			'position' : latLng,
+			'title' : "my location!",
+			'icon' : 'red.png'
+
+		}, function(marker) {
+			marker.showInfoWindow();
+		});
+	}
+
+	function addIconMarker(map, latLng) {
+		map.addMarker({
+			'position' : latLng,
+			'title' : 'job site',
+			'icon' : 'www/images/google_tokyo_icon.png'
+		});
+	}
+
+	function showMyLocation(map) {
+		map.clear();
+
+		var success = function(location) {
+
+			map.moveCamera({
+				'target' : location.latLng,
+				'tilt' : 90,
+				'zoom' : 15,
+				'bearing' : 0
+			});
+			addMarker(map, location.latLng);
+
+		};
+
+		var error = function(result) {
+			app.showAlert("ERROR\n---\n" + result.error_message);
+		};
+
+		map.getMyLocation({
+			enableHighAccuracy : true
+		}, success, error);
+	}
+
+</script>

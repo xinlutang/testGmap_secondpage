@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+		<meta name="viewport" content="user-scalable=no, initial-scale=1,user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>Google Maps Plugin for Cordova</title>
+		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/jqm-demos.css">
+
+		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="pragma" content="no-cache">
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/prettify.js"></script>
+
+		<link rel="stylesheet" href="js/datepicker/default.css" id="theme_base">
+		<link rel="stylesheet" href="js/datepicker/default.date.css" id="theme_date">
+		<link rel="stylesheet" href="js/datepicker/default.time.css" id="theme_time">
+
+		<script src="js/handlebars.js"></script>
+
+		-->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/jqm-demos.css">
+
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="pragma" content="no-cache">
+
+		<link href="css/prettify.css" type="text/css" rel="stylesheet" />
+		<script src="js/prettify.js"></script>
+
+		<link rel="stylesheet" href="js/datepicker/default.css" id="theme_base">
+		<link rel="stylesheet" href="js/datepicker/default.date.css" id="theme_date">
+		<link rel="stylesheet" href="js/datepicker/default.time.css" id="theme_time">
+
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/handlebars.js"></script>
+
+		<style>
+			html, body, #map_container {
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+			#map_canvas {
+				width: 100%;
+				min-height: 300px;
+				height: 90%;
+				position: relative;
+			}
+
+		</style>
+	</head>
+	<body>
+	
+	
+
+		<div data-role="page" class="jqm-demos" id="worker_mapview_page">
+			
+
+			<div data-role="header" data-position="fixed" style="background-color:green">
+
+				<h1 style="color: white">Map View</h1>
+
+			</div><!-- /header -->
+			<div role="main"  id='map_container' class="ui-content jqm-content">
+
+
+			</div><!-- /content -->
+
+			<div data-role="footer" data-position="fixed">
+
+				<div class="ui-grid-b center">
+					<div class="ui-block-a ">
+						<a href="#worker_menu_page" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+						ui-icon-back ui-btn-icon-left">Back</a>
+					</div>
+					<div class="ui-block-b ">
+
+					</div>
+					<div class="ui-block-c ">
+
+					</div>
+				</div>
+
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		
+	<div data-role="page" class="jqm-demos" id="worker_menu_page" data-title="Siteler Worker Menu">
+
+			<div data-role="header" data-position="fixed" style="margin-left: auto; margin-right: auto;width: 100%;">
+				header
+			</div><!-- /header -->
+
+			<div role="main" class="ui-content jqm-content jqm-fullwidth">
+
+							<a href="#worker_mapview_page"  >View Job Map</a>
+
+			</div><!-- /content -->
+
+		</div><!-- /worker_menu_page -->
+		
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/httprequest.js"></script>
+		<script type="text/javascript" src="js/md5.js"></script>
+		<!--
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQC9sMh3b3_vhe2gbI_-WyiBzRte88KmY"></script>
+		-->
+		<script src="js/datepicker/picker.js"></script>
+		<script src="js/datepicker/picker.date.js"></script>
+		<script src="js/datepicker/picker.time.js"></script>
+		<script src="js/datepicker/demo.js"></script>
+		<script src="js/form_handler.js"></script>
+
+		<script type="text/javascript">
+			app.initialize();
+		</script>
+	</body>
+</html>
